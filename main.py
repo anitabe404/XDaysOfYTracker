@@ -12,4 +12,5 @@ if __name__ == '__main__':
     print(f'Your start date is {new_challenge.start_date.strftime("%b %d, %Y")}')
     print(f'Your end date is {new_challenge.end_date.strftime("%b %d, %Y")}')
     print(f'You are currently on Day {new_challenge.currentDay()}')
+    print(f'You have {new_challenge.remainingDays()} days left')
     print("===================================================================")
