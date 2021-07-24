@@ -70,6 +70,17 @@ class ConfigManager:
             return self.tracker
         else:
             return False
+    
+    def push(self, tracker) -> None:
+        exportObj = [{}]
+        exportObj[0]['start_date'] = tracker.start_date.isoformat()
+        exportObj[0]['duration'] = tracker.duration
+        exportObj[0]['end_date'] = tracker.end_date.isoformat()
+        exportObj[0]['punchcard'] = tracker.punchcard
+        jsonString = json.dumps(exportObj)
+        jsonFile = open(self.file_name, "w")
+        jsonFile.write(jsonString)
+        jsonFile.close()
 
 # file_name = './tests/good_tracker_data.json'
 # config_man = ConfigManager(file_name)

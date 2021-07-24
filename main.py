@@ -7,14 +7,15 @@ def welcome():
     print("Welcome to the XDaysofY Challenge Tracker")
     print("===================================================================")
 
-def firstRun():
+def firstRun(config):
     start_date = input('Enter start date in ISO format: ')
     duration = int(input('Enter challenge duration in days: '))
     tracker = ChallengeTracker(start_date, duration)
+    config.push(tracker)
     # export tracker to config file
-    displayDetails(tracker)
+    displayDetails(tracker, config)
 
-def displayDetails(tracker):
+def displayDetails(tracker, config):
     print("")
     print("================== Your Challenge Information ====================")
     print(f'Your start date is {tracker.start_date.strftime("%b %d, %Y")}')
@@ -24,9 +25,9 @@ def displayDetails(tracker):
     print(f'You have missed a total of {tracker.missedDays()} days')
     print("===================================================================")
     print("")
-    whatNext(tracker)
+    whatNext(tracker, config)
 
-def whatNext(tracker):
+def whatNext(tracker, config):
     print("-----------------------------------------------------------")
     print("What would you like to do?")
     print("(D)isplay challenge details")
@@ -35,13 +36,13 @@ def whatNext(tracker):
     print("-----------------------------------------------------------")
 
     if selection == "D":
-        displayDetails(tracker)
+        displayDetails(tracker, config)
     elif selection == "S":
-        setDay(tracker)
+        setDay(tracker, config)
     else:
-        whatNext(tracker)
+        whatNext(tracker, config)
 
-def setDay(tracker):
+def setDay(tracker, config):
     print("Do you want to:")
     print("(C)omplete a day")
     print("(M)ark a day as missed")
@@ -50,17 +51,17 @@ def setDay(tracker):
     if selection == 'C':
         date = input("Enter date that you'd like to mark complete: ")
         tracker.markDateComplete(date)
-        # Update config file
-        displayDetails(tracker)
+        config.push(tracker)
+        displayDetails(tracker, config)
     elif selection == 'M':
         date = input("Enter date that you'd like to mark as missed: ")
         tracker.markDateMissed(date)
-        # Update config file
-        displayDetails(tracker)
+        config.push(tracker)
+        displayDetails(tracker, config)
     
 if __name__ == '__main__':
     welcome()
     config = ConfigManager('anita.json')
     config.load()
     tracker = config.getTracker()
-    whatNext(tracker) if tracker else firstRun()
+    whatNext(tracker, config) if tracker else firstRun(config)

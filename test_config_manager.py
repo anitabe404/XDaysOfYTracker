@@ -66,3 +66,18 @@ class TestConfigManager(unittest.TestCase):
     #     config_man = ConfigManager(file_name)
     #     with self.assertRaises(RuntimeError):
     #         config_man.tracker()
+
+    def test_push(self):
+        comparison_file = "./tests/good_tracker_data_for_comparison.json"
+        comparison_string = open(comparison_file).read()
+
+        push_file = "./tests/good_tracker_data_from_push.json"
+        config_for_push = ConfigManager(push_file)
+        tracker_for_push = ChallengeTracker('2021-07-19', 5)
+        tracker_for_push.markDateComplete('2021-07-19')
+        tracker_for_push.markDateComplete('2021-07-20')
+        config_for_push.push(tracker_for_push)
+        push_string = open(push_file).read()
+        
+        self.assertEqual(push_string, comparison_string)
+        
