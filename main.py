@@ -61,7 +61,7 @@ def setDay(tracker, config):
     
 if __name__ == '__main__':
     welcome()
-    config = ConfigManager('anita.json')
+    config = ConfigManager('config.json')
     config.load()
     tracker = config.getTracker()
     whatNext(tracker, config) if tracker else firstRun(config)
