@@ -22,7 +22,7 @@ def displayDetails(tracker, config):
     print(f'Your end date is {tracker.end_date.strftime("%b %d, %Y")}')
     print(f'You are currently on Day {tracker.currentDay()}')
     print(f'You have {tracker.remainingDays()} days left')
-    print(f'You have missed a total of {tracker.missedDays()} days')
+    print(f'You have missed a total of {tracker.totalMissedDays()} days')
     print("===================================================================")
     print("")
     whatNext(tracker, config)

@@ -48,9 +48,9 @@ class ChallengeTracker:
         if day > 0 and day <=self.duration:
             self.punchcard[day] = False
     
-    def missedDays(self) -> int:
+    def totalMissedDays(self) -> int:
         values = [self.punchcard[key] for key in range(1, self.currentDay()+1)]   
         return values.count(False)
     
     def completedDays(self) -> int:
-        return self.currentDay() - self.missedDays()
+        return self.currentDay() - self.totalMissedDays()

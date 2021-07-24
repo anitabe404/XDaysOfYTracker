@@ -108,14 +108,14 @@ class TestChallengeTracker(unittest.TestCase):
         tracker.markDateMissed(missed_day)
         self.assertEqual(tracker.punchcard[delta+1], False)
     
-    def test_missedDays(self):
+    def test_totalMissedDays(self):
         delta = 5
         date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
         duration = 100
         tracker = ChallengeTracker(date, duration)
         missed_day = dt.date.today().isoformat()
         tracker.markDateComplete(missed_day)
-        self.assertEqual(tracker.missedDays(), delta)
+        self.assertEqual(tracker.totalMissedDays(), delta)
 
 
 if __name__ == "__main__":
