@@ -1,0 +1,8 @@
+[
+    {
+        "start_date": "2021-07-19",
+        "duration": "5",
+        "end_date": "2021-07-23",
+        "punchcard": {"1": true, "2": true, "3": false, "4": false, "5": false}
+    }
+]
