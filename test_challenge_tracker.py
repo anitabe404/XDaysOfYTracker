@@ -1,7 +1,6 @@
 import unittest
 import datetime as dt
 from challenge_tracker import ChallengeTracker
-from punch_card import PunchCard
 
 class TestChallengeTracker(unittest.TestCase):
     def test_start_date_is_date_obj(self):
@@ -88,6 +87,14 @@ class TestChallengeTracker(unittest.TestCase):
         today = dt.date.today().isoformat()
         self.assertEqual(tracker.getDayFromDate(today), delta + 1)
     
+    def test_getDateFromDay(self):
+        delta = 5
+        date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
+        duration = 100
+        tracker = ChallengeTracker(date, duration)
+        today = dt.date.today().isoformat()
+        self.assertEqual(tracker.getDateFromDay(delta+1),today)
+
     def test_markDateComplete(self):
         delta = 5
         date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
@@ -116,7 +123,63 @@ class TestChallengeTracker(unittest.TestCase):
         missed_day = dt.date.today().isoformat()
         tracker.markDateComplete(missed_day)
         self.assertEqual(tracker.totalMissedDays(), delta)
+    
+    def test_createDays(self):
+        delta = 5
+        start_date = dt.date.today() - dt.timedelta(days=delta)
+        duration = 20
+        tracker = ChallengeTracker(start_date.isoformat(), duration)
+        self.assertEqual(len(tracker.days), duration)
+        for day in tracker.days:
+            # Confirm id is in range of 1 to duration
+            self.assertIn(day.id,range(1,duration+1))
 
+            # Confirm day and date are aligned
+            date_obj = dt.date.fromisoformat(day.iso_date)
+            self.assertGreaterEqual(date_obj,start_date)
+            self.assertLessEqual(date_obj, tracker.end_date)
+            self.assertEqual(day.iso_date, tracker.getDateFromDay(day.id))
+
+            # Confirm completion status is set to false
+            self.assertFalse(day.completed)
+
+            # Confirm journal entry is set to None
+            self.assertIsNone(day.journal_entry)
+    
+    def test_createJournalEntry(self):
+        delta = 5
+        today = dt.date.today()
+        start_date = today - dt.timedelta(days=delta)
+        duration = 20
+        tracker = ChallengeTracker(start_date.isoformat(), duration)
+        tracker.createJournalEntry(start_date.isoformat())
+        def_content = "Today's Progress: \nThoughts: \nLink to work: "
+        self.assertEqual(tracker.getJournalEntry(start_date.isoformat()), def_content)
+        content = "Hello World"
+        tracker.createJournalEntry(today.isoformat(), content)
+        self.assertEqual(tracker.getJournalEntry(today.isoformat()), content)
+    
+    def test_modifyJournalEntry(self):
+        delta = 5
+        today = dt.date.today()
+        start_date = today - dt.timedelta(days=delta)
+        duration = 20
+        tracker = ChallengeTracker(start_date.isoformat(), duration)
+        tracker.createJournalEntry(start_date.isoformat())
+        new_content = "Modified content"
+        tracker.modifyJournalEntry(start_date.isoformat(), new_content)
+        self.assertEqual(tracker.getJournalEntry(start_date.isoformat()), new_content)    
+    
+    def test_asJSONObj(self):
+        delta = 5
+        start_date = dt.date.today() - dt.timedelta(days=delta)
+        duration = 20
+        tracker = ChallengeTracker(start_date.isoformat(), duration)
+        json_data = tracker.asJSONObj()
+        self.assertEqual(tracker.start_date.isoformat(), json_data['start_date'])
+        self.assertEqual(json_data['duration'], duration)
+        self.assertEqual(json_data['end_date'], tracker.end_date.isoformat())
+        self.assertEqual(len(json_data['days']), duration)
 
 if __name__ == "__main__":
     unittest.main()

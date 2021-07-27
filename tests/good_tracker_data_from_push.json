@@ -1,1 +1,37 @@
-[{"start_date": "2021-07-19", "duration": 5, "end_date": "2021-07-23", "punchcard": {"1": true, "2": true, "3": false, "4": false, "5": false}}]
+{
+    "start_date": "2021-07-19",
+    "duration": 5,
+    "end_date": "2021-07-23",
+    "days": [
+        {
+            "id": 1,
+            "iso_date": "2021-07-19",
+            "completed": true,
+            "journal_entry": null
+        },
+        {
+            "id": 2,
+            "iso_date": "2021-07-20",
+            "completed": true,
+            "journal_entry": null
+        },
+        {
+            "id": 3,
+            "iso_date": "2021-07-21",
+            "completed": false,
+            "journal_entry": null
+        },
+        {
+            "id": 4,
+            "iso_date": "2021-07-22",
+            "completed": false,
+            "journal_entry": null
+        },
+        {
+            "id": 5,
+            "iso_date": "2021-07-23",
+            "completed": false,
+            "journal_entry": null
+        }
+    ]
+}
