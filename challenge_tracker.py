@@ -11,17 +11,10 @@ class ChallengeTracker:
         self.start_date = dt.date.fromisoformat(start_date)
         self.duration = duration
         self.end_date = self.getEndDate()
-        #self.punchcard = self.createNewPunchcard()
         self.days = self.createDays()
 
     def getEndDate(self) -> dt.date:
         return self.start_date + dt.timedelta(days=self.duration-1)
-    
-    def createNewPunchcard(self):
-        punchcard = {}
-        for key in range(1,self.duration+1):
-            punchcard[key] = False
-        return punchcard
     
     def createDays(self):
         return [Day(day, self.getDateFromDay(day)) for day in range(1, self.duration + 1)]
@@ -48,30 +41,25 @@ class ChallengeTracker:
     def getDateFromDay(self,d):
         return (self.start_date + dt.timedelta(days=d-1)).isoformat()
 
-    def markDateComplete(self, date):
-        id = self.getDayFromDate(date)
+    def getDayFromDays(self, id):
         selected_day = None
 
         for day in self.days:
             if day.id == id:
                 selected_day = day
-                break
-            else:
-                continue
+        
+        return selected_day
+
+    def markDateComplete(self, date):
+        id = self.getDayFromDate(date)
+        selected_day = self.getDayFromDays(id)
 
         if selected_day and selected_day.id > 0 and selected_day.id <=self.duration:
             selected_day.completed = True
 
     def markDateMissed(self, date):
         id = self.getDayFromDate(date)
-        selected_day = None
-
-        for day in self.days:
-            if day.id == id:
-                selected_day = day
-                break
-            else:
-                continue
+        selected_day = self.getDayFromDays(id)
 
         if selected_day and selected_day.id > 0 and selected_day.id <=self.duration:
             selected_day.completed = False
@@ -128,14 +116,10 @@ class ChallengeTracker:
         selected_day.journal_entry.modify(content)
 
     def asJSONObj(self) -> dict:
-        tracker_object = {
+        serializabble_tracker = {
             'start_date': self.start_date.isoformat(),
             'duration': self.duration,
             'end_date': self.end_date.isoformat(),
             'days': [d.asJSONObj() for d in self.days]
         }
-        return tracker_object
-
-tracker = ChallengeTracker("2021-05-04", 100)
-with open("jope.json", "w") as write_file:
-    json.dump(tracker.asJSONObj(), write_file, indent=4)
+        return serializabble_tracker

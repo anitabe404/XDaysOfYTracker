@@ -59,25 +59,6 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(start_date.isoformat(), duration)
         self.assertEqual(tracker.isActive(), False)
-
-    def test_createPunchcard(self):
-        today = dt.date.today().isoformat()
-        duration = 5
-        tracker = ChallengeTracker(today, duration)
-        my_card = tracker.punchcard
-        num_of_false = list(my_card.values()).count(False)
-        num_of_true = list(my_card.values()).count(True)
-        self.assertEqual(num_of_false, duration)
-        self.assertEqual(num_of_true, 0)
-
-    def test_punchcard(self):
-        tracker = ChallengeTracker('2021-05-04', 100)
-        punchcard = tracker.punchcard
-        self.assertIsInstance(punchcard, dict)
-        self.assertEqual(len(punchcard),100)
-        punchcard_keys = list(punchcard.keys())
-        punchcard_keys.sort()
-        self.assertEqual(punchcard_keys, list(range(1,101)))
     
     def test_getDayFromDate(self):
         delta = 5
@@ -94,6 +75,15 @@ class TestChallengeTracker(unittest.TestCase):
         tracker = ChallengeTracker(date, duration)
         today = dt.date.today().isoformat()
         self.assertEqual(tracker.getDateFromDay(delta+1),today)
+    
+    def test_getDayFromDays(self):
+        delta = 5
+        date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
+        duration = 20
+        tracker = ChallengeTracker(date, duration)
+        selected_day = tracker.getDayFromDays(delta+1)
+        self.assertEqual(selected_day.id, delta+1)
+        self.assertEqual(selected_day.iso_date, dt.date.today().isoformat())
 
     def test_markDateComplete(self):
         delta = 5
@@ -101,8 +91,10 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         completed_date = dt.date.today().isoformat()
+        id = tracker.getDayFromDate(completed_date)
         tracker.markDateComplete(completed_date)
-        self.assertEqual(tracker.punchcard[delta+1], True)
+        selected_day = tracker.getDayFromDays(id)
+        self.assertTrue(selected_day.completed)
     
     def test_markDateMissed(self):
         delta = 5
@@ -110,10 +102,11 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         missed_day = dt.date.today().isoformat()
+        missed_day_id = tracker.getDayFromDate(missed_day)
         tracker.markDateComplete(missed_day)
-        self.assertEqual(tracker.punchcard[delta+1], True)
+        self.assertTrue(tracker.getDayFromDays(missed_day_id).completed)
         tracker.markDateMissed(missed_day)
-        self.assertEqual(tracker.punchcard[delta+1], False)
+        self.assertFalse(tracker.getDayFromDays(missed_day_id).completed)
     
     def test_totalMissedDays(self):
         delta = 5
