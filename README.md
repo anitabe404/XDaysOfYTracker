@@ -45,3 +45,6 @@ To use the app, you will need to be familiar with the Terminal. You'll need to n
 - **IMPORTANT NOTE:** All dates must be entered in ISO format (i.e. YYYY-MM-DD). Any other formats will cause an error. If you get a traceback, restart the app by using the `Python3 main.py` command.
 - Once you've successfully set your challenge start date and duration, any time you subsequently run the app, it will give you the option to display your challenge data, set a day to completed or missed, or modify a journal entry.
   - **IMPORTANT NOTE:** Once you've entered your challenge data, it gets stored in the config.json file. In order for the app to keep tracking your data, you must not modify the config.json file. The data in the file only needs to be deleted during the installation process. After that, it should **not** be modified. If you modify the data in config.json, you will **permanently** lose your challenge details.
+
+### Best Practices & Recommendations
+To prevent any loss of challenge data, you can use git to track the config.json file. This way, if the file ever becomes corrupted, it can be restored to a previous version. You can do the same for exports of the journal file.
