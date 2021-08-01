@@ -28,3 +28,12 @@ class Day():
                         "completed": self.completed, 
                         "journal_entry": self.journal_entry
                     }
+    
+    @classmethod
+    def load(cls, imported_data:dict):
+        # Need to add validation that all necessary parameters are available
+        id = imported_data['id']
+        iso_date = imported_data['iso_date']
+        completed = imported_data['completed']
+        journal_entry = imported_data['journal_entry']
+        return cls(id, iso_date, completed, journal_entry)
