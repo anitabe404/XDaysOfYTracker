@@ -7,8 +7,8 @@ from journal_entry import Entry
 #   (Ex. Not Started, In Progress, Done)
 
 class ChallengeTracker:
-    def __init__(self, start_date: str, duration: int) -> None:
-        self.start_date = dt.date.fromisoformat(start_date)
+    def __init__(self, iso_start_date: str, duration: int) -> None:
+        self.start_date = dt.date.fromisoformat(iso_start_date)
         self.duration = duration
         self.end_date = self.getEndDate()
         self.days = self.createDays()
@@ -43,11 +43,10 @@ class ChallengeTracker:
 
     def getDayFromDays(self, id):
         selected_day = None
-
         for day in self.days:
             if day.id == id:
                 selected_day = day
-        
+                break  
         return selected_day
 
     def markDateComplete(self, date):
@@ -73,47 +72,27 @@ class ChallengeTracker:
     
     def createJournalEntry(self, date, content=None) -> None:
         id = self.getDayFromDate(date)
-        selected_day = None
-
-        for day in self.days:
-            if day.id == id:
-                selected_day = day
-                break
-            else:
-                continue
-
-        selected_day.journal_entry = Entry(content)
+        selected_day = self.getDayFromDays(id)
+        if selected_day:
+            selected_day.journal_entry = Entry(content)
     
     def getJournalEntry(self, date) -> str:
         id = self.getDayFromDate(date)
-        selected_day = None
-
-        for day in self.days:
-            if day.id == id:
-                selected_day = day
-                break
+        selected_day = self.getDayFromDays(id)
+        if selected_day:
+            # Return journal entry content if exsits.
+            # Create new journal entry if doesn't exist.
+            if selected_day.journal_entry:
+                return selected_day.journal_entry.content
             else:
-                continue
-        
-        # Return journal entry content if exsits.
-        # Create new journal entry if doesn't exist.
-        if selected_day.journal_entry:
-            return selected_day.journal_entry.content
-        else:
-            selected_day.journal_entry = Entry()
+                selected_day.journal_entry = Entry()
+                return selected_day.journal_entry.content
 
     def modifyJournalEntry(self, date: str, content: str) -> None:
         id = self.getDayFromDate(date)
-        selected_day = None
-
-        for day in self.days:
-            if day.id == id:
-                selected_day = day
-                break
-            else:
-                continue
-
-        selected_day.journal_entry.modify(content)
+        selected_day = self.getDayFromDays(id)
+        if selected_day:
+            selected_day.journal_entry.modify(content)
 
     def asJSONObj(self) -> dict:
         serializabble_tracker = {

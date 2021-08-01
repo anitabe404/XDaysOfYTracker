@@ -514,25 +514,25 @@
         {
             "id": 85,
             "iso_date": "2021-07-27",
-            "completed": false,
+            "completed": true,
             "journal_entry": null
         },
         {
             "id": 86,
             "iso_date": "2021-07-28",
-            "completed": false,
+            "completed": true,
             "journal_entry": null
         },
         {
             "id": 87,
             "iso_date": "2021-07-29",
-            "completed": false,
+            "completed": true,
             "journal_entry": null
         },
         {
             "id": 88,
             "iso_date": "2021-07-30",
-            "completed": false,
+            "completed": true,
             "journal_entry": null
         },
         {
