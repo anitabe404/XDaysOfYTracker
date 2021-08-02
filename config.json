@@ -538,13 +538,13 @@
         {
             "id": 89,
             "iso_date": "2021-07-31",
-            "completed": false,
+            "completed": true,
             "journal_entry": null
         },
         {
             "id": 90,
             "iso_date": "2021-08-01",
-            "completed": false,
+            "completed": true,
             "journal_entry": null
         },
         {
