@@ -545,37 +545,57 @@
             "id": 90,
             "iso_date": "2021-08-01",
             "completed": true,
-            "journal_entry": null
+            "journal_entry": {
+                "content": "Fixed test cases for journal_entry script. Added a new class method to Entry that allows you to create an instance using imported data (dictionary). I plan to add a load method to all of the other classes used in the project. I still feel like I have a lot of work to do before I can move on to the next thing.",
+                "date_created": "2021-08-02T03:07:29.084617",
+                "last_modified": "2021-08-02T03:09:31.772526"
+            }
         },
         {
             "id": 91,
             "iso_date": "2021-08-02",
-            "completed": false,
-            "journal_entry": null
+            "completed": true,
+            "journal_entry": {
+                "content": "Decided to work on an Exercism problem: palindrome products. I've made decent prgoress, but my code is inefficient and I had a moment where I thought my computer was going to fly away. It was making so much noise! Anyway, I still have work to do on it to get it submitted, but it's off to a good start. I joined the Kaggle 30 days of machine learning challenge. Matt encouraged me to do it with him. I'm too tired to do the first assignment though, so I have that on my plate for tomorrow. I'm exhausted and calling it an early night.",
+                "date_created": "2021-08-02T23:29:43.159873",
+                "last_modified": "2021-08-02T23:29:43.159890"
+            }
         },
         {
             "id": 92,
             "iso_date": "2021-08-03",
-            "completed": false,
+            "completed": true,
             "journal_entry": null
         },
         {
             "id": 93,
             "iso_date": "2021-08-04",
-            "completed": false,
-            "journal_entry": null
+            "completed": true,
+            "journal_entry": {
+                "content": "Worked on Day 3 of the Kaggle 30 Days of ML. Learned that I can use a docstring (triple quoted string) right under the def of a function to create help text. Now, I can start specifying what my function does and leaving breadcrumbs. Getting closer and closer to being a professional dev.",
+                "date_created": "2021-08-05T01:12:02.809965",
+                "last_modified": "2021-08-05T01:12:02.809983"
+            }
         },
         {
             "id": 94,
             "iso_date": "2021-08-05",
-            "completed": false,
-            "journal_entry": null
+            "completed": true,
+            "journal_entry": {
+                "content": "Completed Kaggle Day 4",
+                "date_created": "2021-08-07T03:39:08.535056",
+                "last_modified": "2021-08-07T03:39:08.535079"
+            }
         },
         {
             "id": 95,
             "iso_date": "2021-08-06",
-            "completed": false,
-            "journal_entry": null
+            "completed": true,
+            "journal_entry": {
+                "content": "Worked on Day 5 of 30 Days of ML (Kaggle). Also started thinking about my coding goals and what I want to do now that my 100DaysOfCode is coming to an end. I think I want to go back to exploring WebDev. Data Analysis is cool, but so far I haven't found a resource that makes it interesting. The Google course feels too easy. The Kaggle 30 Days of ML seems promising; the first assignment was interesting at least. I'm curious to see how the rest of it goes and if ML is an area of interest for me. So far, I think learning WebDev was more interesting than anything I've done so far in the Google Data Analytics cert. I'll keep brainstorming (and coding).",
+                "date_created": "2021-08-07T03:38:05.422525",
+                "last_modified": "2021-08-07T03:38:05.422545"
+            }
         },
         {
             "id": 96,
