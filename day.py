@@ -1,39 +1,69 @@
 import json
-import journal_entry as je
+from journal_entry import Entry
+import datetime as dt
 
 class Day():
-    def __init__(self, day: int, date: str, completed:bool=False, journal_entry=None) -> None:
-        self.id = day
-        self.iso_date = date
+    VALID_KEYS = ['completed', 'id', 'iso_date', 'log']
+    def __init__(self, day_id: int, iso_date: str, completed:bool=False, log=None) -> None:
+        self.id = day_id
+        self.iso_date = iso_date
         self.completed = completed
-        if isinstance(journal_entry, dict):
-            self.journal_entry = je.Entry(journal_entry['content'])
-            self.journal_entry.date_created = journal_entry['date_created']
-            self.journal_entry.last_modified = journal_entry['last_modified']
+        if isinstance(log, Entry):
+            self.log = log
+        elif isinstance(log, dict):
+            self.log = Entry.load(log)
         else:
-            self.journal_entry = journal_entry
+            self.log = Entry()
+    
+    def modifyEntry(self, new_content):
+        self.log.modify(new_content)
 
     def asJSONObj(self) -> dict:
-        if isinstance(self.journal_entry, je.Entry):
+        if isinstance(self.log, Entry):
             return {
                      "id": self.id, 
                     "iso_date": self.iso_date,
                     "completed": self.completed, 
-                    "journal_entry": self.journal_entry.asJSONObj()   
+                    "log": self.log.asJSONObj()   
             }
         else:
             return {
                         "id": self.id, 
                         "iso_date": self.iso_date,
                         "completed": self.completed, 
-                        "journal_entry": self.journal_entry
+                        "log": self.log
                     }
     
     @classmethod
     def load(cls, imported_data:dict):
-        # Need to add validation that all necessary parameters are available
-        id = imported_data['id']
-        iso_date = imported_data['iso_date']
-        completed = imported_data['completed']
-        journal_entry = imported_data['journal_entry']
-        return cls(id, iso_date, completed, journal_entry)
+        if not isinstance(imported_data, dict):
+            return None
+
+        # fail flags
+        id_fail_flag = False
+        iso_fail_flag = False
+        completed_fail_flag = False
+
+        imported_keys = list(imported_data.keys())
+        imported_keys.sort()
+        if imported_keys == Day.VALID_KEYS:
+            id = imported_data['id']
+            if not isinstance(id, int):
+                id_fail_flag = True
+
+            iso_date = imported_data['iso_date']
+            try:
+                dt.date.fromisoformat(iso_date)
+            except:
+                iso_fail_flag = True
+
+            completed = imported_data['completed']
+            if not isinstance(completed, bool):
+                completed_fail_flag = True
+            
+            log = Entry.load(imported_data['log'])
+
+            if not (id_fail_flag or iso_fail_flag or completed_fail_flag):
+                return cls(id, iso_date, completed, log)
+        
+        return None
