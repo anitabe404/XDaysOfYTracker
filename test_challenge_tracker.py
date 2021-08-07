@@ -1,6 +1,7 @@
 import unittest
 import datetime as dt
 from challenge_tracker import ChallengeTracker
+import day
 
 class TestChallengeTracker(unittest.TestCase):
     def test_start_date_is_date_obj(self):
@@ -66,7 +67,7 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         today = dt.date.today().isoformat()
-        self.assertEqual(tracker.getDayFromDate(today), delta + 1)
+        self.assertEqual(tracker.getDayIdFromDate(today), delta + 1)
     
     def test_getDateFromDay(self):
         delta = 5
@@ -74,14 +75,14 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         today = dt.date.today().isoformat()
-        self.assertEqual(tracker.getDateFromDay(delta+1),today)
+        self.assertEqual(tracker.getDateFromDayId(delta+1),today)
     
     def test_getDayFromDays(self):
         delta = 5
         date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
         duration = 20
         tracker = ChallengeTracker(date, duration)
-        selected_day = tracker.getDayFromDays(delta+1)
+        selected_day = tracker.selectDayFromDays(delta+1)
         self.assertEqual(selected_day.id, delta+1)
         self.assertEqual(selected_day.iso_date, dt.date.today().isoformat())
 
@@ -91,9 +92,9 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         completed_date = dt.date.today().isoformat()
-        id = tracker.getDayFromDate(completed_date)
+        id = tracker.getDayIdFromDate(completed_date)
         tracker.markDateComplete(completed_date)
-        selected_day = tracker.getDayFromDays(id)
+        selected_day = tracker.selectDayFromDays(id)
         self.assertTrue(selected_day.completed)
     
     def test_markDateMissed(self):
@@ -102,11 +103,11 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         missed_day = dt.date.today().isoformat()
-        missed_day_id = tracker.getDayFromDate(missed_day)
+        missed_day_id = tracker.getDayIdFromDate(missed_day)
         tracker.markDateComplete(missed_day)
-        self.assertTrue(tracker.getDayFromDays(missed_day_id).completed)
+        self.assertTrue(tracker.selectDayFromDays(missed_day_id).completed)
         tracker.markDateMissed(missed_day)
-        self.assertFalse(tracker.getDayFromDays(missed_day_id).completed)
+        self.assertFalse(tracker.selectDayFromDays(missed_day_id).completed)
     
     def test_totalMissedDays(self):
         delta = 5
@@ -131,37 +132,24 @@ class TestChallengeTracker(unittest.TestCase):
             date_obj = dt.date.fromisoformat(day.iso_date)
             self.assertGreaterEqual(date_obj,start_date)
             self.assertLessEqual(date_obj, tracker.end_date)
-            self.assertEqual(day.iso_date, tracker.getDateFromDay(day.id))
+            self.assertEqual(day.iso_date, tracker.getDateFromDayId(day.id))
 
             # Confirm completion status is set to false
             self.assertFalse(day.completed)
 
-            # Confirm journal entry is set to None
-            self.assertIsNone(day.journal_entry)
+            # Confirm log exists
+            self.assertTrue(day.log)
     
-    def test_createJournalEntry(self):
+    def test_modifyLog(self):
         delta = 5
         today = dt.date.today()
         start_date = today - dt.timedelta(days=delta)
         duration = 20
         tracker = ChallengeTracker(start_date.isoformat(), duration)
-        tracker.createJournalEntry(start_date.isoformat())
-        def_content = "Today's Progress: \nThoughts: \nLink to work: "
-        self.assertEqual(tracker.getJournalEntry(start_date.isoformat()), def_content)
-        content = "Hello World"
-        tracker.createJournalEntry(today.isoformat(), content)
-        self.assertEqual(tracker.getJournalEntry(today.isoformat()), content)
-    
-    def test_modifyJournalEntry(self):
-        delta = 5
-        today = dt.date.today()
-        start_date = today - dt.timedelta(days=delta)
-        duration = 20
-        tracker = ChallengeTracker(start_date.isoformat(), duration)
-        tracker.createJournalEntry(start_date.isoformat())
         new_content = "Modified content"
-        tracker.modifyJournalEntry(start_date.isoformat(), new_content)
-        self.assertEqual(tracker.getJournalEntry(start_date.isoformat()), new_content)    
+        tracker.modifyLog(start_date.isoformat(), new_content)
+        expected_output = f"Day {tracker.getDayIdFromDate(tracker.start_date.isoformat())}: {tracker.start_date.strftime('%b %d, %Y')}\n{new_content}"
+        self.assertEqual(tracker.viewLog(start_date.isoformat()), expected_output)    
     
     def test_asJSONObj(self):
         delta = 5
