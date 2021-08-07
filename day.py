@@ -11,11 +11,15 @@ class Day():
         if isinstance(log, Entry):
             self.log = log
         elif isinstance(log, dict):
-            self.log = Entry.load(log)
+            self.log = Entry.load(log) or Entry() # if load fails, create new Entry
         else:
             self.log = Entry()
     
-    def modifyEntry(self, new_content):
+    def viewLog(self):
+        mon_dd_yyyy = dt.date.fromisoformat(self.iso_date).strftime("%b %d, %Y")
+        return f"Day {self.id}: {mon_dd_yyyy}\n{self.log.content}"
+
+    def modifyLog(self, new_content):
         self.log.modify(new_content)
 
     def asJSONObj(self) -> dict:

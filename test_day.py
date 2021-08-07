@@ -36,15 +36,30 @@ class TestDay(unittest.TestCase):
         self.assertFalse(day.completed)
         self.assertIsInstance(day.log, Entry)
         self.assertEqual(day.log.content, entry['content'])
+
+        # Confirm log is equivalent to generic new Entry
+        # when given a dict that's invalid
+        bad_entry = {"content": None}
+        expected_log = f"Day {id}: {'Aug 01, 2021'}\n{Entry().content}"
+        day = Day(id, date, log=bad_entry)
+        self.assertEqual(day.viewLog(), expected_log)
     
-    def test_update_entry(self):
+    def test_viewLog(self):
+        id = 2
+        date = "2021-08-07"
+        log_content = "My log content goes here."
+        expected_log = f"Day {id}: {'Aug 07, 2021'}\n{log_content}"
+        day = Day(id, date, log=Entry(log_content))
+        self.assertEqual(day.viewLog(), expected_log)
+    
+    def test_modifyLog(self):
         id = 1
         date = '2021-08-01'
         content = "My journal entry goes here"
         entry = Entry(content)
         day = Day(id, date, True, entry)
         new_content = "New journal content"
-        day.modifyEntry(new_content)
+        day.modifyLog(new_content)
         self.assertEqual(day.log.content,new_content)
     
     def test_load_cls_method(self):
