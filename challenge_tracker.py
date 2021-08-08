@@ -74,6 +74,14 @@ class ChallengeTracker:
         selected_day = self.selectDayFromDays(id)
         if selected_day:
             selected_day.modifyLog(content)
+    
+    def exportLog(self):
+        with open("log.txt", "w") as fh:
+            divider = '=' * 60
+            latest_id = self.currentDay() if self.isActive() else self.duration
+            for id in range(latest_id,0,-1):
+                date = self.getDateFromDayId(id)
+                fh.write(self.viewLog(date) + "\n" + divider + "\n")
 
     def asJSONObj(self) -> dict:
         serializabble_tracker = {
