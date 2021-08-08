@@ -125,6 +125,5 @@ def editJournal(tracker, config):
 if __name__ == '__main__':
     welcome()
     config = ConfigManager('config.json')
-    config.load()
-    tracker = config.getTracker()
+    tracker = config.load()
     whatNext(tracker, config) if tracker else firstRun(config)
