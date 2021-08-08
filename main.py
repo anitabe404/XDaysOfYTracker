@@ -32,7 +32,7 @@ def whatNext(tracker, config):
     print("What would you like to do?")
     print("(D)isplay challenge details")
     print("(S)et a day to complete or missed")
-    print("(J)ournal: See, Create, or Update Entry")
+    print("(J)ournal: View Entry, Update Entry, or Export")
     selection = input("> ").upper()
     print("-----------------------------------------------------------")
 
@@ -64,59 +64,49 @@ def setDay(tracker, config):
 
 def editJournal(tracker, config):
     print("Do you want to:")
-    print("(S)ee an entry")
-    print("(C)reate an entry")
+    print("(V)iew an entry")
     print("(U)pdate an entry")
+    print("(E)xport journal")
     selection = input("> ").upper()
 
-    print("Enter ISO date of journal entry: ")
-    date = input("> ")
+    
 
-    if selection == 'S':
-        content = tracker.getJournalEntry(date)
-        print(content)
+    if selection == 'V':
+        print("Enter ISO date of journal entry: ")
+        date = input("> ")
+        print("====================")
+        print(tracker.viewLog(date))
+        print("====================")
         input("(Press Enter to continue)")
         displayDetails(tracker, config)
-    elif selection == 'C':
-        print("Enter text for journal entry")
-        content = input("> ")
-        tracker.createJournalEntry(date, content)
-        config.push(tracker)
-        day = tracker.getDayFromDate(date)
-        date_obj = dt.date.fromisoformat(date)
-        print("")
-        print("Here's your entry:")
-        print("====================")
-        print(f"Day {day}: {date_obj.strftime('%b %d, %Y')}")
-        print(tracker.getJournalEntry(date))
-        print("====================")
-        input("Press Enter to continue")
-        whatNext(tracker,config)
     elif selection == "U":
-        day = tracker.getDayFromDate(date)
-        date_obj = dt.date.fromisoformat(date)
+        print("Enter ISO date of journal entry: ")
+        date = input("> ")
 
         # Display current text
         print("Current Text:")
         print("====================")
-        print(f"Day {day}: {date_obj.strftime('%b %d, %Y')}")
-        print(tracker.getJournalEntry(date))
+        print(tracker.viewLog(date))
         print("====================")
 
         # Request new text
         print("")
         print("Enter new text.")
         new_content = input("> ")
-        tracker.modifyJournalEntry(date, new_content)
+        tracker.modifyLog(date, new_content)
         config.push(tracker)
 
         # Display new text
         print("")
         print("Here's your updated entry.")
         print("====================")
-        print(f"Day {day}: {date_obj.strftime('%b %d, %Y')}")
-        print(tracker.getJournalEntry(date))
+        print(tracker.viewLog(date))
         print("====================")
+        input("Press Enter to continue")
+        whatNext(tracker,config)
+    elif selection == "E":
+        tracker.exportLog()
+        print("Log exported to log.txt")
         input("Press Enter to continue")
         whatNext(tracker,config)
     else:
