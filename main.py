@@ -32,6 +32,7 @@ def whatNext(tracker, config):
     print("What would you like to do?")
     print("(D)isplay challenge details")
     print("(S)et a day to complete or missed")
+    print("(J)ournal: View Entry, Update Entry, or Export")
     selection = input("> ").upper()
     print("-----------------------------------------------------------")
 
@@ -39,6 +40,8 @@ def whatNext(tracker, config):
         displayDetails(tracker, config)
     elif selection == "S":
         setDay(tracker, config)
+    elif selection == "J":
+        editJournal(tracker,config)
     else:
         whatNext(tracker, config)
 
@@ -58,10 +61,59 @@ def setDay(tracker, config):
         tracker.markDateMissed(date)
         config.push(tracker)
         displayDetails(tracker, config)
+
+def editJournal(tracker, config):
+    print("Do you want to:")
+    print("(V)iew an entry")
+    print("(U)pdate an entry")
+    print("(E)xport journal")
+    selection = input("> ").upper()
+
+    
+
+    if selection == 'V':
+        print("Enter ISO date of journal entry: ")
+        date = input("> ")
+        print("====================")
+        print(tracker.viewLog(date))
+        print("====================")
+        input("(Press Enter to continue)")
+        displayDetails(tracker, config)
+    elif selection == "U":
+        print("Enter ISO date of journal entry: ")
+        date = input("> ")
+
+        # Display current text
+        print("Current Text:")
+        print("====================")
+        print(tracker.viewLog(date))
+        print("====================")
+
+        # Request new text
+        print("")
+        print("Enter new text.")
+        new_content = input("> ")
+        tracker.modifyLog(date, new_content)
+        config.push(tracker)
+
+        # Display new text
+        print("")
+        print("Here's your updated entry.")
+        print("====================")
+        print(tracker.viewLog(date))
+        print("====================")
+        input("Press Enter to continue")
+        whatNext(tracker,config)
+    elif selection == "E":
+        tracker.exportLog()
+        print("Log exported to log.txt")
+        input("Press Enter to continue")
+        whatNext(tracker,config)
+    else:
+        editJournal(tracker,config)
     
 if __name__ == '__main__':
     welcome()
     config = ConfigManager('config.json')
-    config.load()
-    tracker = config.getTracker()
+    tracker = config.load()
     whatNext(tracker, config) if tracker else firstRun(config)

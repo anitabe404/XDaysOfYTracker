@@ -1,7 +1,8 @@
 import unittest
 import datetime as dt
 from challenge_tracker import ChallengeTracker
-from punch_card import PunchCard
+import day
+import json
 
 class TestChallengeTracker(unittest.TestCase):
     def test_start_date_is_date_obj(self):
@@ -60,25 +61,6 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(start_date.isoformat(), duration)
         self.assertEqual(tracker.isActive(), False)
-
-    def test_createPunchcard(self):
-        today = dt.date.today().isoformat()
-        duration = 5
-        tracker = ChallengeTracker(today, duration)
-        my_card = tracker.punchcard
-        num_of_false = list(my_card.values()).count(False)
-        num_of_true = list(my_card.values()).count(True)
-        self.assertEqual(num_of_false, duration)
-        self.assertEqual(num_of_true, 0)
-
-    def test_punchcard(self):
-        tracker = ChallengeTracker('2021-05-04', 100)
-        punchcard = tracker.punchcard
-        self.assertIsInstance(punchcard, dict)
-        self.assertEqual(len(punchcard),100)
-        punchcard_keys = list(punchcard.keys())
-        punchcard_keys.sort()
-        self.assertEqual(punchcard_keys, list(range(1,101)))
     
     def test_getDayFromDate(self):
         delta = 5
@@ -86,16 +68,35 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         today = dt.date.today().isoformat()
-        self.assertEqual(tracker.getDayFromDate(today), delta + 1)
+        self.assertEqual(tracker.getDayIdFromDate(today), delta + 1)
     
+    def test_getDateFromDay(self):
+        delta = 5
+        date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
+        duration = 100
+        tracker = ChallengeTracker(date, duration)
+        today = dt.date.today().isoformat()
+        self.assertEqual(tracker.getDateFromDayId(delta+1),today)
+    
+    def test_getDayFromDays(self):
+        delta = 5
+        date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
+        duration = 20
+        tracker = ChallengeTracker(date, duration)
+        selected_day = tracker.selectDayFromDays(delta+1)
+        self.assertEqual(selected_day.id, delta+1)
+        self.assertEqual(selected_day.iso_date, dt.date.today().isoformat())
+
     def test_markDateComplete(self):
         delta = 5
         date = (dt.date.today() - dt.timedelta(days=delta)).isoformat()
         duration = 100
         tracker = ChallengeTracker(date, duration)
         completed_date = dt.date.today().isoformat()
+        id = tracker.getDayIdFromDate(completed_date)
         tracker.markDateComplete(completed_date)
-        self.assertEqual(tracker.punchcard[delta+1], True)
+        selected_day = tracker.selectDayFromDays(id)
+        self.assertTrue(selected_day.completed)
     
     def test_markDateMissed(self):
         delta = 5
@@ -103,10 +104,11 @@ class TestChallengeTracker(unittest.TestCase):
         duration = 100
         tracker = ChallengeTracker(date, duration)
         missed_day = dt.date.today().isoformat()
+        missed_day_id = tracker.getDayIdFromDate(missed_day)
         tracker.markDateComplete(missed_day)
-        self.assertEqual(tracker.punchcard[delta+1], True)
+        self.assertTrue(tracker.selectDayFromDays(missed_day_id).completed)
         tracker.markDateMissed(missed_day)
-        self.assertEqual(tracker.punchcard[delta+1], False)
+        self.assertFalse(tracker.selectDayFromDays(missed_day_id).completed)
     
     def test_totalMissedDays(self):
         delta = 5
@@ -116,7 +118,62 @@ class TestChallengeTracker(unittest.TestCase):
         missed_day = dt.date.today().isoformat()
         tracker.markDateComplete(missed_day)
         self.assertEqual(tracker.totalMissedDays(), delta)
+    
+    def test_createDays(self):
+        delta = 5
+        start_date = dt.date.today() - dt.timedelta(days=delta)
+        duration = 20
+        tracker = ChallengeTracker(start_date.isoformat(), duration)
+        self.assertEqual(len(tracker.days), duration)
+        for day in tracker.days:
+            # Confirm id is in range of 1 to duration
+            self.assertIn(day.id,range(1,duration+1))
 
+            # Confirm day and date are aligned
+            date_obj = dt.date.fromisoformat(day.iso_date)
+            self.assertGreaterEqual(date_obj,start_date)
+            self.assertLessEqual(date_obj, tracker.end_date)
+            self.assertEqual(day.iso_date, tracker.getDateFromDayId(day.id))
+
+            # Confirm completion status is set to false
+            self.assertFalse(day.completed)
+
+            # Confirm log exists
+            self.assertTrue(day.log)
+    
+    def test_modifyLog(self):
+        delta = 5
+        today = dt.date.today()
+        start_date = today - dt.timedelta(days=delta)
+        duration = 20
+        tracker = ChallengeTracker(start_date.isoformat(), duration)
+        new_content = "Modified content"
+        tracker.modifyLog(start_date.isoformat(), new_content)
+        expected_output = f"Day {tracker.getDayIdFromDate(tracker.start_date.isoformat())}: {tracker.start_date.strftime('%b %d, %Y')}\n{new_content}"
+        self.assertEqual(tracker.viewLog(start_date.isoformat()), expected_output)    
+    
+    def test_asJSONObj(self):
+        delta = 5
+        start_date = dt.date.today() - dt.timedelta(days=delta)
+        duration = 20
+        tracker = ChallengeTracker(start_date.isoformat(), duration)
+        json_data = tracker.asJSONObj()
+        self.assertEqual(tracker.start_date.isoformat(), json_data['start_date'])
+        self.assertEqual(json_data['duration'], duration)
+        self.assertEqual(json_data['end_date'], tracker.end_date.isoformat())
+        self.assertEqual(len(json_data['days']), duration)
+
+    def test_load(self):
+        fh = open('./tests/good_tracker_data.json')
+        imported_data = json.load(fh)
+        tracker = ChallengeTracker.load(imported_data)
+        self.assertIsInstance(tracker, ChallengeTracker)
+    
+    def test_load_for_invalid_tracker_data(self):
+        fh = open('./tests/bad_tracker_data.json')
+        bad_import_data = json.load(fh)
+        tracker = ChallengeTracker.load(bad_import_data)
+        self.assertIsNone(tracker)
 
 if __name__ == "__main__":
     unittest.main()

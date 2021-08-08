@@ -1,1 +1,1007 @@
-[{"start_date": "2021-07-19", "duration": 5, "end_date": "2021-07-23", "punchcard": {"1": true, "2": true, "3": false, "4": false, "5": false}}]
+{
+    "start_date": "2021-05-04",
+    "duration": 100,
+    "end_date": "2021-08-11",
+    "days": [
+        {
+            "id": 1,
+            "iso_date": "2021-05-04",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578510",
+                "last_modified": "2021-08-07T19:16:39.578569"
+            }
+        },
+        {
+            "id": 2,
+            "iso_date": "2021-05-05",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578576",
+                "last_modified": "2021-08-07T19:16:39.578578"
+            }
+        },
+        {
+            "id": 3,
+            "iso_date": "2021-05-06",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578582",
+                "last_modified": "2021-08-07T19:16:39.578584"
+            }
+        },
+        {
+            "id": 4,
+            "iso_date": "2021-05-07",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578587",
+                "last_modified": "2021-08-07T19:16:39.578590"
+            }
+        },
+        {
+            "id": 5,
+            "iso_date": "2021-05-08",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578593",
+                "last_modified": "2021-08-07T19:16:39.578595"
+            }
+        },
+        {
+            "id": 6,
+            "iso_date": "2021-05-09",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578598",
+                "last_modified": "2021-08-07T19:16:39.578601"
+            }
+        },
+        {
+            "id": 7,
+            "iso_date": "2021-05-10",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578607",
+                "last_modified": "2021-08-07T19:16:39.578609"
+            }
+        },
+        {
+            "id": 8,
+            "iso_date": "2021-05-11",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578612",
+                "last_modified": "2021-08-07T19:16:39.578615"
+            }
+        },
+        {
+            "id": 9,
+            "iso_date": "2021-05-12",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578618",
+                "last_modified": "2021-08-07T19:16:39.578620"
+            }
+        },
+        {
+            "id": 10,
+            "iso_date": "2021-05-13",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578623",
+                "last_modified": "2021-08-07T19:16:39.578626"
+            }
+        },
+        {
+            "id": 11,
+            "iso_date": "2021-05-14",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578629",
+                "last_modified": "2021-08-07T19:16:39.578631"
+            }
+        },
+        {
+            "id": 12,
+            "iso_date": "2021-05-15",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578634",
+                "last_modified": "2021-08-07T19:16:39.578637"
+            }
+        },
+        {
+            "id": 13,
+            "iso_date": "2021-05-16",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578640",
+                "last_modified": "2021-08-07T19:16:39.578642"
+            }
+        },
+        {
+            "id": 14,
+            "iso_date": "2021-05-17",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578645",
+                "last_modified": "2021-08-07T19:16:39.578648"
+            }
+        },
+        {
+            "id": 15,
+            "iso_date": "2021-05-18",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578651",
+                "last_modified": "2021-08-07T19:16:39.578653"
+            }
+        },
+        {
+            "id": 16,
+            "iso_date": "2021-05-19",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578656",
+                "last_modified": "2021-08-07T19:16:39.578658"
+            }
+        },
+        {
+            "id": 17,
+            "iso_date": "2021-05-20",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578662",
+                "last_modified": "2021-08-07T19:16:39.578664"
+            }
+        },
+        {
+            "id": 18,
+            "iso_date": "2021-05-21",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578667",
+                "last_modified": "2021-08-07T19:16:39.578669"
+            }
+        },
+        {
+            "id": 19,
+            "iso_date": "2021-05-22",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578673",
+                "last_modified": "2021-08-07T19:16:39.578675"
+            }
+        },
+        {
+            "id": 20,
+            "iso_date": "2021-05-23",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578678",
+                "last_modified": "2021-08-07T19:16:39.578680"
+            }
+        },
+        {
+            "id": 21,
+            "iso_date": "2021-05-24",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578683",
+                "last_modified": "2021-08-07T19:16:39.578686"
+            }
+        },
+        {
+            "id": 22,
+            "iso_date": "2021-05-25",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578689",
+                "last_modified": "2021-08-07T19:16:39.578691"
+            }
+        },
+        {
+            "id": 23,
+            "iso_date": "2021-05-26",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578694",
+                "last_modified": "2021-08-07T19:16:39.578697"
+            }
+        },
+        {
+            "id": 24,
+            "iso_date": "2021-05-27",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578700",
+                "last_modified": "2021-08-07T19:16:39.578702"
+            }
+        },
+        {
+            "id": 25,
+            "iso_date": "2021-05-28",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578707",
+                "last_modified": "2021-08-07T19:16:39.578710"
+            }
+        },
+        {
+            "id": 26,
+            "iso_date": "2021-05-29",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578713",
+                "last_modified": "2021-08-07T19:16:39.578715"
+            }
+        },
+        {
+            "id": 27,
+            "iso_date": "2021-05-30",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578719",
+                "last_modified": "2021-08-07T19:16:39.578721"
+            }
+        },
+        {
+            "id": 28,
+            "iso_date": "2021-05-31",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578724",
+                "last_modified": "2021-08-07T19:16:39.578726"
+            }
+        },
+        {
+            "id": 29,
+            "iso_date": "2021-06-01",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578729",
+                "last_modified": "2021-08-07T19:16:39.578732"
+            }
+        },
+        {
+            "id": 30,
+            "iso_date": "2021-06-02",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578735",
+                "last_modified": "2021-08-07T19:16:39.578737"
+            }
+        },
+        {
+            "id": 31,
+            "iso_date": "2021-06-03",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578740",
+                "last_modified": "2021-08-07T19:16:39.578743"
+            }
+        },
+        {
+            "id": 32,
+            "iso_date": "2021-06-04",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578748",
+                "last_modified": "2021-08-07T19:16:39.578751"
+            }
+        },
+        {
+            "id": 33,
+            "iso_date": "2021-06-05",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578754",
+                "last_modified": "2021-08-07T19:16:39.578756"
+            }
+        },
+        {
+            "id": 34,
+            "iso_date": "2021-06-06",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578759",
+                "last_modified": "2021-08-07T19:16:39.578762"
+            }
+        },
+        {
+            "id": 35,
+            "iso_date": "2021-06-07",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578765",
+                "last_modified": "2021-08-07T19:16:39.578767"
+            }
+        },
+        {
+            "id": 36,
+            "iso_date": "2021-06-08",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578770",
+                "last_modified": "2021-08-07T19:16:39.578772"
+            }
+        },
+        {
+            "id": 37,
+            "iso_date": "2021-06-09",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578776",
+                "last_modified": "2021-08-07T19:16:39.578778"
+            }
+        },
+        {
+            "id": 38,
+            "iso_date": "2021-06-10",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578781",
+                "last_modified": "2021-08-07T19:16:39.578783"
+            }
+        },
+        {
+            "id": 39,
+            "iso_date": "2021-06-11",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578787",
+                "last_modified": "2021-08-07T19:16:39.578789"
+            }
+        },
+        {
+            "id": 40,
+            "iso_date": "2021-06-12",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578792",
+                "last_modified": "2021-08-07T19:16:39.578794"
+            }
+        },
+        {
+            "id": 41,
+            "iso_date": "2021-06-13",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578797",
+                "last_modified": "2021-08-07T19:16:39.578800"
+            }
+        },
+        {
+            "id": 42,
+            "iso_date": "2021-06-14",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578803",
+                "last_modified": "2021-08-07T19:16:39.578805"
+            }
+        },
+        {
+            "id": 43,
+            "iso_date": "2021-06-15",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578808",
+                "last_modified": "2021-08-07T19:16:39.578811"
+            }
+        },
+        {
+            "id": 44,
+            "iso_date": "2021-06-16",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578814",
+                "last_modified": "2021-08-07T19:16:39.578816"
+            }
+        },
+        {
+            "id": 45,
+            "iso_date": "2021-06-17",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578819",
+                "last_modified": "2021-08-07T19:16:39.578821"
+            }
+        },
+        {
+            "id": 46,
+            "iso_date": "2021-06-18",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578825",
+                "last_modified": "2021-08-07T19:16:39.578827"
+            }
+        },
+        {
+            "id": 47,
+            "iso_date": "2021-06-19",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578830",
+                "last_modified": "2021-08-07T19:16:39.578832"
+            }
+        },
+        {
+            "id": 48,
+            "iso_date": "2021-06-20",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578837",
+                "last_modified": "2021-08-07T19:16:39.578840"
+            }
+        },
+        {
+            "id": 49,
+            "iso_date": "2021-06-21",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578843",
+                "last_modified": "2021-08-07T19:16:39.578845"
+            }
+        },
+        {
+            "id": 50,
+            "iso_date": "2021-06-22",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578848",
+                "last_modified": "2021-08-07T19:16:39.578851"
+            }
+        },
+        {
+            "id": 51,
+            "iso_date": "2021-06-23",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578854",
+                "last_modified": "2021-08-07T19:16:39.578856"
+            }
+        },
+        {
+            "id": 52,
+            "iso_date": "2021-06-24",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578859",
+                "last_modified": "2021-08-07T19:16:39.578861"
+            }
+        },
+        {
+            "id": 53,
+            "iso_date": "2021-06-25",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578865",
+                "last_modified": "2021-08-07T19:16:39.578867"
+            }
+        },
+        {
+            "id": 54,
+            "iso_date": "2021-06-26",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578870",
+                "last_modified": "2021-08-07T19:16:39.578872"
+            }
+        },
+        {
+            "id": 55,
+            "iso_date": "2021-06-27",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578876",
+                "last_modified": "2021-08-07T19:16:39.578878"
+            }
+        },
+        {
+            "id": 56,
+            "iso_date": "2021-06-28",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578881",
+                "last_modified": "2021-08-07T19:16:39.578883"
+            }
+        },
+        {
+            "id": 57,
+            "iso_date": "2021-06-29",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578889",
+                "last_modified": "2021-08-07T19:16:39.578891"
+            }
+        },
+        {
+            "id": 58,
+            "iso_date": "2021-06-30",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578894",
+                "last_modified": "2021-08-07T19:16:39.578896"
+            }
+        },
+        {
+            "id": 59,
+            "iso_date": "2021-07-01",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578900",
+                "last_modified": "2021-08-07T19:16:39.578902"
+            }
+        },
+        {
+            "id": 60,
+            "iso_date": "2021-07-02",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578905",
+                "last_modified": "2021-08-07T19:16:39.578907"
+            }
+        },
+        {
+            "id": 61,
+            "iso_date": "2021-07-03",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578911",
+                "last_modified": "2021-08-07T19:16:39.578913"
+            }
+        },
+        {
+            "id": 62,
+            "iso_date": "2021-07-04",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578918",
+                "last_modified": "2021-08-07T19:16:39.578920"
+            }
+        },
+        {
+            "id": 63,
+            "iso_date": "2021-07-05",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578924",
+                "last_modified": "2021-08-07T19:16:39.578926"
+            }
+        },
+        {
+            "id": 64,
+            "iso_date": "2021-07-06",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578929",
+                "last_modified": "2021-08-07T19:16:39.578931"
+            }
+        },
+        {
+            "id": 65,
+            "iso_date": "2021-07-07",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578935",
+                "last_modified": "2021-08-07T19:16:39.578937"
+            }
+        },
+        {
+            "id": 66,
+            "iso_date": "2021-07-08",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578940",
+                "last_modified": "2021-08-07T19:16:39.578942"
+            }
+        },
+        {
+            "id": 67,
+            "iso_date": "2021-07-09",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578945",
+                "last_modified": "2021-08-07T19:16:39.578948"
+            }
+        },
+        {
+            "id": 68,
+            "iso_date": "2021-07-10",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578951",
+                "last_modified": "2021-08-07T19:16:39.578953"
+            }
+        },
+        {
+            "id": 69,
+            "iso_date": "2021-07-11",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578956",
+                "last_modified": "2021-08-07T19:16:39.578959"
+            }
+        },
+        {
+            "id": 70,
+            "iso_date": "2021-07-12",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578962",
+                "last_modified": "2021-08-07T19:16:39.578964"
+            }
+        },
+        {
+            "id": 71,
+            "iso_date": "2021-07-13",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578969",
+                "last_modified": "2021-08-07T19:16:39.578971"
+            }
+        },
+        {
+            "id": 72,
+            "iso_date": "2021-07-14",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578974",
+                "last_modified": "2021-08-07T19:16:39.578977"
+            }
+        },
+        {
+            "id": 73,
+            "iso_date": "2021-07-15",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578980",
+                "last_modified": "2021-08-07T19:16:39.578982"
+            }
+        },
+        {
+            "id": 74,
+            "iso_date": "2021-07-16",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578985",
+                "last_modified": "2021-08-07T19:16:39.578988"
+            }
+        },
+        {
+            "id": 75,
+            "iso_date": "2021-07-17",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578991",
+                "last_modified": "2021-08-07T19:16:39.578993"
+            }
+        },
+        {
+            "id": 76,
+            "iso_date": "2021-07-18",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.578996",
+                "last_modified": "2021-08-07T19:16:39.578998"
+            }
+        },
+        {
+            "id": 77,
+            "iso_date": "2021-07-19",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579002",
+                "last_modified": "2021-08-07T19:16:39.579004"
+            }
+        },
+        {
+            "id": 78,
+            "iso_date": "2021-07-20",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579007",
+                "last_modified": "2021-08-07T19:16:39.579009"
+            }
+        },
+        {
+            "id": 79,
+            "iso_date": "2021-07-21",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579013",
+                "last_modified": "2021-08-07T19:16:39.579015"
+            }
+        },
+        {
+            "id": 80,
+            "iso_date": "2021-07-22",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579018",
+                "last_modified": "2021-08-07T19:16:39.579020"
+            }
+        },
+        {
+            "id": 81,
+            "iso_date": "2021-07-23",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579023",
+                "last_modified": "2021-08-07T19:16:39.579026"
+            }
+        },
+        {
+            "id": 82,
+            "iso_date": "2021-07-24",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579031",
+                "last_modified": "2021-08-07T19:16:39.579033"
+            }
+        },
+        {
+            "id": 83,
+            "iso_date": "2021-07-25",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579036",
+                "last_modified": "2021-08-07T19:16:39.579039"
+            }
+        },
+        {
+            "id": 84,
+            "iso_date": "2021-07-26",
+            "completed": true,
+            "log": {
+                "content": "I think I have the journal feature working!!!!!!!!! I'm about to lose my mind. Added some more text.",
+                "date_created": "2021-07-27",
+                "last_modified": "2021-07-27T01:21:57.898677"
+            }
+        },
+        {
+            "id": 85,
+            "iso_date": "2021-07-27",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579042",
+                "last_modified": "2021-08-07T19:16:39.579044"
+            }
+        },
+        {
+            "id": 86,
+            "iso_date": "2021-07-28",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579047",
+                "last_modified": "2021-08-07T19:16:39.579050"
+            }
+        },
+        {
+            "id": 87,
+            "iso_date": "2021-07-29",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579053",
+                "last_modified": "2021-08-07T19:16:39.579055"
+            }
+        },
+        {
+            "id": 88,
+            "iso_date": "2021-07-30",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579058",
+                "last_modified": "2021-08-07T19:16:39.579061"
+            }
+        },
+        {
+            "id": 89,
+            "iso_date": "2021-07-31",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579064",
+                "last_modified": "2021-08-07T19:16:39.579066"
+            }
+        },
+        {
+            "id": 90,
+            "iso_date": "2021-08-01",
+            "completed": true,
+            "log": {
+                "content": "Fixed test cases for journal_entry script. Added a new class method to Entry that allows you to create an instance using imported data (dictionary). I plan to add a load method to all of the other classes used in the project. I still feel like I have a lot of work to do before I can move on to the next thing.",
+                "date_created": "2021-08-02T03:07:29.084617",
+                "last_modified": "2021-08-02T03:09:31.772526"
+            }
+        },
+        {
+            "id": 91,
+            "iso_date": "2021-08-02",
+            "completed": true,
+            "log": {
+                "content": "Decided to work on an Exercism problem: palindrome products. I've made decent prgoress, but my code is inefficient and I had a moment where I thought my computer was going to fly away. It was making so much noise! Anyway, I still have work to do on it to get it submitted, but it's off to a good start. I joined the Kaggle 30 days of machine learning challenge. Matt encouraged me to do it with him. I'm too tired to do the first assignment though, so I have that on my plate for tomorrow. I'm exhausted and calling it an early night.",
+                "date_created": "2021-08-02T23:29:43.159873",
+                "last_modified": "2021-08-02T23:29:43.159890"
+            }
+        },
+        {
+            "id": 92,
+            "iso_date": "2021-08-03",
+            "completed": true,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579069",
+                "last_modified": "2021-08-07T19:16:39.579072"
+            }
+        },
+        {
+            "id": 93,
+            "iso_date": "2021-08-04",
+            "completed": true,
+            "log": {
+                "content": "Worked on Day 3 of the Kaggle 30 Days of ML. Learned that I can use a docstring (triple quoted string) right under the def of a function to create help text. Now, I can start specifying what my function does and leaving breadcrumbs. Getting closer and closer to being a professional dev.",
+                "date_created": "2021-08-05T01:12:02.809965",
+                "last_modified": "2021-08-05T01:12:02.809983"
+            }
+        },
+        {
+            "id": 94,
+            "iso_date": "2021-08-05",
+            "completed": true,
+            "log": {
+                "content": "Completed Kaggle Day 4",
+                "date_created": "2021-08-07T03:39:08.535056",
+                "last_modified": "2021-08-07T03:39:08.535079"
+            }
+        },
+        {
+            "id": 95,
+            "iso_date": "2021-08-06",
+            "completed": true,
+            "log": {
+                "content": "Worked on Day 5 of 30 Days of ML (Kaggle). Also started thinking about my coding goals and what I want to do now that my 100DaysOfCode is coming to an end. I think I want to go back to exploring WebDev. Data Analysis is cool, but so far I haven't found a resource that makes it interesting. The Google course feels too easy. The Kaggle 30 Days of ML seems promising; the first assignment was interesting at least. I'm curious to see how the rest of it goes and if ML is an area of interest for me. So far, I think learning WebDev was more interesting than anything I've done so far in the Google Data Analytics cert. I'll keep brainstorming (and coding).",
+                "date_created": "2021-08-07T03:38:05.422525",
+                "last_modified": "2021-08-07T03:38:05.422545"
+            }
+        },
+        {
+            "id": 96,
+            "iso_date": "2021-08-07",
+            "completed": false,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579075",
+                "last_modified": "2021-08-07T19:16:39.579077"
+            }
+        },
+        {
+            "id": 97,
+            "iso_date": "2021-08-08",
+            "completed": false,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579081",
+                "last_modified": "2021-08-07T19:16:39.579083"
+            }
+        },
+        {
+            "id": 98,
+            "iso_date": "2021-08-09",
+            "completed": false,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579086",
+                "last_modified": "2021-08-07T19:16:39.579089"
+            }
+        },
+        {
+            "id": 99,
+            "iso_date": "2021-08-10",
+            "completed": false,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579092",
+                "last_modified": "2021-08-07T19:16:39.579094"
+            }
+        },
+        {
+            "id": 100,
+            "iso_date": "2021-08-11",
+            "completed": false,
+            "log": {
+                "content": "Today's Progress: \nThoughts: ",
+                "date_created": "2021-08-07T19:16:39.579099",
+                "last_modified": "2021-08-07T19:16:39.579102"
+            }
+        }
+    ]
+}
