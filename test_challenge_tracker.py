@@ -2,6 +2,7 @@ import unittest
 import datetime as dt
 from challenge_tracker import ChallengeTracker
 import day
+import json
 
 class TestChallengeTracker(unittest.TestCase):
     def test_start_date_is_date_obj(self):
@@ -161,6 +162,18 @@ class TestChallengeTracker(unittest.TestCase):
         self.assertEqual(json_data['duration'], duration)
         self.assertEqual(json_data['end_date'], tracker.end_date.isoformat())
         self.assertEqual(len(json_data['days']), duration)
+
+    def test_load(self):
+        fh = open('./tests/good_tracker_data.json')
+        imported_data = json.load(fh)
+        tracker = ChallengeTracker.load(imported_data)
+        self.assertIsInstance(tracker, ChallengeTracker)
+    
+    def test_load_for_invalid_tracker_data(self):
+        fh = open('./tests/bad_tracker_data.json')
+        bad_import_data = json.load(fh)
+        tracker = ChallengeTracker.load(bad_import_data)
+        self.assertIsNone(tracker)
 
 if __name__ == "__main__":
     unittest.main()

@@ -4,11 +4,13 @@ from day import *
 from journal_entry import Entry
 
 class ChallengeTracker:
-    def __init__(self, iso_start_date: str, duration: int) -> None:
+    VALID_KEYS = ['days', 'duration', 'end_date', 'start_date']
+
+    def __init__(self, iso_start_date: str, duration: int, days=None) -> None:
         self.start_date = dt.date.fromisoformat(iso_start_date)
         self.duration = duration
         self.end_date = self.start_date + dt.timedelta(days=self.duration-1)
-        self.days = [Day(id, self.getDateFromDayId(id)) for id in range(1, self.duration + 1)]
+        self.days = days or [Day(id, self.getDateFromDayId(id)) for id in range(1, self.duration + 1)]
     
     def isActive(self) -> bool:
         return self.start_date <= dt.date.today() and self.end_date >= dt.date.today()
@@ -81,3 +83,39 @@ class ChallengeTracker:
             'days': [d.asJSONObj() for d in self.days]
         }
         return serializabble_tracker
+    
+    @classmethod
+    def load(cls, import_data):
+        if not isinstance(import_data, dict):
+            print("Not a dictionary")
+            return None
+        
+        imported_keys = list(import_data.keys())
+        imported_keys.sort()
+
+        if imported_keys != cls.VALID_KEYS:
+            print("Invalid keys")
+            return None
+
+        # fail flags
+        end_date_ff = False
+        days_ff = False
+
+        start_date = import_data['start_date']
+        duration = import_data['duration']
+        end_date = import_data['end_date']
+        days = [Day.load(day) for day in import_data['days']]
+
+        temp_tracker = ChallengeTracker(start_date, duration)
+
+        if end_date != temp_tracker.end_date.isoformat():
+            end_date_ff = True
+        
+        if len(days) != len(temp_tracker.days) or None in days:
+            days_ff = True
+
+
+        if not (end_date_ff or days_ff):
+            return cls(start_date, duration, days)
+        else:
+            return None
