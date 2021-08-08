@@ -1,4 +1,3 @@
-import day
 import json
 from challenge_tracker import *
 

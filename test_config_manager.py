@@ -1,8 +1,6 @@
 from challenge_tracker import ChallengeTracker
 import unittest
-import json
 from config_manager import ConfigManager
-import os.path
 
 class TestConfigManager(unittest.TestCase):
     def test_init_with_file_name(self):
