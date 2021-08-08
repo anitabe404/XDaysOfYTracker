@@ -39,7 +39,7 @@ To use XDaysOfY, you need to make sure you have Python 3 installed on your machi
   - Confirm that `config` variable is set to `ConfigManager('config.json')`
 
 ## Running the App
-To use the app, you will need to be familiar with the Terminal. Navigate to the directory that contains the app's files and run main.py ($ `python3 main.py`). It's important that you complete **ALL** of the steps in the Installation section (above) before you run the app. Once, you've completed the installation, do the following:
+To use the app, you will need to be familiar with the Terminal. Navigate to the directory that contains the app's files and run main.py ($ `python3 main.py`). It's important that you complete **ALL** of the steps in the Installation section (above) before you run the app. Once you've completed the installation, do the following:
 - Open the Terminal and navigate to the directory that contains the app's files.
 - Once there, run the following command: $ `Python3 main.py`
 - If this is your first time running the app, you should be prompted to enter your challenge start date and duration.
